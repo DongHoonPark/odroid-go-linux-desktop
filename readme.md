@@ -1,11 +1,10 @@
 # Odroid Go Linux Desktop
 
-This repository is setup guide for linux desktop of odroid go super/ ultra hardware.
+This repository is setup guide and image for linux desktop of odroid go super hardware.
 Please be aware that the purpose of the script is to run QT gui application on linux desktop.
 
 This script is not fully tested. If there is problem, please raise a issue.
 
-And, even though antimicrox is embedded in script but configuration file is not made yet. You need to configure joystick to mouse mapping by yourself now. 
 
 # Prerequisite
 - Ubuntu 20.04 focal image
