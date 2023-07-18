@@ -34,23 +34,37 @@ sudo systemctl start lightdm
 # 6. Install antimicro/ antimicrox to enable joystick input 
 cd ~
 wget https://github.com/DongHoonPark/antimicrox/releases/download/v3.3.4-aarch64/antimicrox-3.3.4-focal-aarch64.deb
-sudo apt install qt5-default #execution dependency
+sudo apt install qt5-default git #execution dependency
 sudo dpkg -i antimicrox-3.3.4-focal-aarch64.deb
 
-# 6. Install misc apps 
+# 7. Install misc apps 
 sudo apt install xdrp -y    # remote desktop
 echo xfce4-session > ~/.xsession
 sudo service xrdp restart 
+
+# 8. Install alternative booting process logo
+# I had been followed instruction for debian in
+# https://github.com/adi1090x/plymouth-themes
+# you can apply any booting animation which prefer!
 sudo apt install plymouth-themes
+cd ~
+git clone https://github.com/adi1090x/plymouth-themes
+cd plymouth-themes/pack_4
+sudo cp -r splash /usr/share/plymouth/themes/
+cd ~
+sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/splash/splash.plymouth 100
+sudo update-alternatives --config default.plymouth
+sudo update-initramfs -u
+
 
 sudo apt install onboard -y # virtual keyboard
 #sudo apt install blueman # bluetooth manager
 
-# 7. Install git, pip and setup env
-sudo apt install git python3-pip
+# 9. Install pip and setup env
+sudo apt install python3-pip
 sudo apt isntall python-is-python3
 
-# 8. Install PySide2 : Takes long time..
+# 8. Install PySide2 
 sudo apt isntall libpyside2-dev python3-pyside2.*
 
 
