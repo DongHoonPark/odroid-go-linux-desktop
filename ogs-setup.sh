@@ -35,15 +35,21 @@ sudo cp xorg.ogs.conf /etc/X11/xorg.conf
 sudo cp lightdm.conf /etc/lightdm/lightdm.conf
 sudo systemctl start lightdm
 
-# 6. Install antimicro/ antimicrox to enable joystick input 
+# 6. Install antimicrox, onboard to enable joystick input and virtual keyboard
 cd ~
 wget https://github.com/DongHoonPark/antimicrox/releases/download/v3.3.4-aarch64/antimicrox-3.3.4-focal-aarch64.deb
 sudo apt install qt5-default #execution dependency
 sudo dpkg -i antimicrox-3.3.4-focal-aarch64.deb
 rm antimicrox-3.3.4-focal-aarch64.deb
+sudo apt install onboard -y # virtual keyboard
+cd odroid-go-linux-desktop
+# copy settings
+sudo cp -r odroid/.config/ ../ 
+sudo cp -r odroid/.local/ ../ 
+
 
 # 7. Install misc apps 
-sudo apt install xdrp -y    # remote desktop
+sudo apt install xrdp -y    # remote desktop
 echo xfce4-session > ~/.xsession
 sudo service xrdp restart 
 
@@ -51,7 +57,7 @@ sudo service xrdp restart
 # I had been followed instruction for debian in
 # https://github.com/adi1090x/plymouth-themes
 # you can apply any booting animation which prefer!
-sudo apt install plymouth-themes
+sudo apt install plymouth-themes -y
 cd ~
 git clone https://github.com/adi1090x/plymouth-themes
 cd plymouth-themes/pack_1
@@ -61,19 +67,18 @@ sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth d
 sudo update-alternatives --config default.plymouth
 sudo update-initramfs -u
 
-
-sudo apt install onboard -y # virtual keyboard
-#sudo apt install blueman # bluetooth manager
-
 # 9. Install pip and setup env
 sudo apt install python3-pip
 sudo apt isntall python-is-python3
 
-# 8. Install PySide2 
+# 10. Install PySide2 
 sudo apt isntall libpyside2-dev python3-pyside2.*
 
 
-# 9. Disable unnecessary service : speed up booting
+# 11. Disable unnecessary service : speed up booting
 sudo systemctl disable smbd.service
 sudo systemctl disable nmbd.service
 sudo systemctl disable NetworkManager-wait-online.service
+
+# 12. Finalizing install
+sudo reboot
