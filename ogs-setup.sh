@@ -27,7 +27,6 @@ sudo do-release-upgrade
 sudo apt install lightdm xfce4 xfce4-power-manager
 # IMPORTANT!: At the "Configuring lightdm" screen, choose "lightdm", NOT "gdm3"
 sudo cp xorg.ogs.conf /etc/X11/xorg.conf
-# sudo cp xorg.ogu.conf /etc/X11/xorg.conf
 sudo cp lightdm.conf /etc/lightdm/lightdm.conf
 sudo systemctl start lightdm
 
@@ -49,10 +48,10 @@ sudo service xrdp restart
 sudo apt install plymouth-themes
 cd ~
 git clone https://github.com/adi1090x/plymouth-themes
-cd plymouth-themes/pack_4
-sudo cp -r splash /usr/share/plymouth/themes/
+cd plymouth-themes/pack_1
+sudo cp -r blockchain /usr/share/plymouth/themes/
 cd ~
-sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/splash/splash.plymouth 100
+sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/blockchain/blockchain.plymouth 100
 sudo update-alternatives --config default.plymouth
 sudo update-initramfs -u
 
@@ -68,3 +67,7 @@ sudo apt isntall python-is-python3
 sudo apt isntall libpyside2-dev python3-pyside2.*
 
 
+# 9. Disable unnecessary service : speed up booting
+sudo systemctl disable smbd.service
+sudo systemctl disable nmbd.service
+sudo systemctl disable NetworkManager-wait-online.service
