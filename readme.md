@@ -34,6 +34,16 @@ sudo apt update
 sudo apt upgrade
 ```
 
+### 3. Reboot
+```sh
+sudo reboot
+```
 
-
+### 4. Update ubuntu to 20.04 focal LTS
+```sh
+sudo apt install update-manager-core -y
+sudo do-release-upgrade 
+# Upgrade to 20.04 focal fosa
+# You need to enter & y several times during upgrade. Please make sure your eyes on it.
+```
 

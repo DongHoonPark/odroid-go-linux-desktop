@@ -17,15 +17,20 @@ sudo apt-get upgrade
 sudo reboot
 
 # 4. Update ubuntu to 20.04 focal LTS
-sudo apt install update-manager-core
+sudo apt install update-manager-core -y
 sudo do-release-upgrade
+# Upgrade to 20.04 focal fosa
+# You need to enter several times during upgrade. Please make sure your eyes on it.
 
 # 5. Setup X11 xorg.conf and lightdm setting
 # OGS : https://forum.odroid.com/viewtopic.php?t=42196 
 # OGU : https://forum.odroid.com/viewtopic.php?f=220&t=46487
 
-sudo apt install lightdm xfce4 xfce4-power-manager
+sudo apt install lightdm xfce4 xfce4-power-manager git
 # IMPORTANT!: At the "Configuring lightdm" screen, choose "lightdm", NOT "gdm3"
+cd ~
+git clone https://github.com/DongHoonPark/odroid-go-linux-desktop
+cd odroid-go-linux-desktop
 sudo cp xorg.ogs.conf /etc/X11/xorg.conf
 sudo cp lightdm.conf /etc/lightdm/lightdm.conf
 sudo systemctl start lightdm
@@ -33,8 +38,9 @@ sudo systemctl start lightdm
 # 6. Install antimicro/ antimicrox to enable joystick input 
 cd ~
 wget https://github.com/DongHoonPark/antimicrox/releases/download/v3.3.4-aarch64/antimicrox-3.3.4-focal-aarch64.deb
-sudo apt install qt5-default git #execution dependency
+sudo apt install qt5-default #execution dependency
 sudo dpkg -i antimicrox-3.3.4-focal-aarch64.deb
+rm antimicrox-3.3.4-focal-aarch64.deb
 
 # 7. Install misc apps 
 sudo apt install xdrp -y    # remote desktop
