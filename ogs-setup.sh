@@ -31,18 +31,24 @@ sudo cp xorg.ogs.conf /etc/X11/xorg.conf
 sudo cp lightdm.conf /etc/lightdm/lightdm.conf
 sudo systemctl start lightdm
 
-# 5. Install antimicro/ antimicrox to enable joystick input 
+# 6. Install antimicro/ antimicrox to enable joystick input 
 cd ~
 wget https://github.com/DongHoonPark/antimicrox/releases/download/v3.3.4-aarch64/antimicrox-3.3.4-focal-aarch64.deb
 sudo apt install qt5-default #execution dependency
 sudo dpkg -i antimicrox-3.3.4-focal-aarch64.deb
 
 # 6. Install misc apps 
-sudo apt isntall onboard # virtual keyboard
+sudo apt install xdrp -y    # remote desktop
+echo xfce4-session > ~/.xsession
+sudo service xrdp restart 
+sudo apt install plymouth-themes
+
+sudo apt install onboard -y # virtual keyboard
 #sudo apt install blueman # bluetooth manager
 
-# 7. Install pip 
-sudo apt install python3-pip
+# 7. Install git, pip and setup env
+sudo apt install git python3-pip
+sudo apt isntall python-is-python3
 
 # 8. Install PySide2 : Takes long time..
 sudo apt isntall libpyside2-dev python3-pyside2.*
