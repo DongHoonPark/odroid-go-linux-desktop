@@ -28,7 +28,7 @@ sudo systemctl enable getty@tty1
 # sudo apt remove emulationstation-go2 emulators-64bit-go2 emulators-32bit-go2
 ```
 
-### 2. Update the pacakge manager
+### 2. Update the package manager
 ```sh
 sudo apt update
 sudo apt upgrade
@@ -54,12 +54,12 @@ During installation, you need to give select on the windows below.
 sudo apt install update-manager-core -y
 sudo do-release-upgrade 
 # Upgrade to 20.04 focal fosa
-# You need to enter & y several times during upgrade. Please make sure your eyes on it.
+# You need to enter & y several times during the upgrade. Please make sure your eyes are on it.
 ```
 
 ### 5. Setup X11 xorg.conf and lightdm setting
 :warning: IMPORTANT! : At the "Configure lightdm" screen, choose "lightdm", NOT "gdm3"
-This prodcure install xfce desktop but you can use lxde or mate as alternative by your preference
+This procedure installs xfce desktop but you can use lxde or mate as an alternative by your preference
 ```sh
 sudo apt install lightdm xfce4 xfce4-power-manager git nano
 cd ~
@@ -96,9 +96,9 @@ sudo service xrdp restart
 ```
 
 ### 8. Install alternative booting process logo
-I had been followed instruction for debian in [HERE](https://github.com/adi1090x/plymouth-themes). You can apply any booting animation which prefer!
+I followed instructions for debian in [HERE](https://github.com/adi1090x/plymouth-themes). You can apply any booting animation you prefer!
 
-The script below is example for blockchain theme which in pack_1
+The script below is an example for a blockchain theme which in pack_1
 ```sh
 sudo apt install plymouth-themes -y
 cd ~
@@ -122,7 +122,7 @@ sudo apt install python-is-python3 -y
 sudo apt install libpyside2-dev python3-pyside2.* -y
 ```
 
-### 11. Disable unnecessary service : speed up booting
+### 11. Disable unnecessary service: speed up booting
 ```sh
 sudo systemctl disable smbd.service
 sudo systemctl disable nmbd.service
