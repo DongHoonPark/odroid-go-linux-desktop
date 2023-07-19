@@ -66,14 +66,14 @@ cd ~
 sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/blockchain/blockchain.plymouth 100
 sudo update-alternatives --config default.plymouth
 sudo update-initramfs -u
+rm -rf plymouth-themes
 
 # 9. Install pip and setup env
-sudo apt install python3-pip
-sudo apt isntall python-is-python3
+sudo apt install python3-pip -y
+sudo apt install python-is-python3 -y
 
 # 10. Install PySide2 
-sudo apt isntall libpyside2-dev python3-pyside2.*
-
+sudo apt install libpyside2-dev python3-pyside2.* -y
 
 # 11. Disable unnecessary service : speed up booting
 sudo systemctl disable smbd.service

@@ -61,7 +61,7 @@ sudo do-release-upgrade
 :warning: IMPORTANT! : At the "Configure lightdm" screen, choose "lightdm", NOT "gdm3"
 This prodcure install xfce desktop but you can use lxde or mate as alternative by your preference
 ```sh
-sudo apt install lightdm xfce4 xfce4-power-manager git
+sudo apt install lightdm xfce4 xfce4-power-manager git nano
 cd ~
 git clone https://github.com/DongHoonPark/odroid-go-linux-desktop
 cd odroid-go-linux-desktop
@@ -111,3 +111,24 @@ sudo update-alternatives --config default.plymouth
 sudo update-initramfs -u
 ```
 
+### 9. Install pip and setup env
+```sh
+sudo apt install python3-pip -y
+sudo apt install python-is-python3 -y
+```
+
+### 10. Install PySide2 
+```sh
+sudo apt install libpyside2-dev python3-pyside2.* -y
+```
+
+### 11. Disable unnecessary service : speed up booting
+```sh
+sudo systemctl disable smbd.service
+sudo systemctl disable nmbd.service
+sudo systemctl disable NetworkManager-wait-online.service
+```
+
+### 12. Finalizing install
+```sh
+sudo reboot
