@@ -5,7 +5,7 @@ Please be aware that the purpose of the script is to run QT gui application on l
 
 This script is not fully tested. If there is problem, please raise a issue.
 
-If you just want to the complete setup, use [release image](). It will bring you to the end of step. 
+If you just want to the complete setup, use [release image](https://github.com/DongHoonPark/odroid-go-linux-desktop/releases/tag/v1.0.0). It will bring you to the end of step. 
 
 
 # Prerequisite
